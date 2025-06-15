@@ -1,8 +1,10 @@
+
 from playwright.sync_api import sync_playwright
+
 
 def test_saucedemo():
     with sync_playwright() as sp:
-        browser = sp.chromium.launch(headless=False)
+        browser = sp.chromium.launch(headless=False,slow_mo=500)
         context = browser.new_context(viewport={"width":1200, "height":800})
         page = browser.new_page()
         page.goto("https://www.saucedemo.com/")
